@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="Group_1171276217" data-name="Group 1171276217" transform="translate(-299 -134.036)">
+    <g id="Search-input_LightMode" data-name="Search-input/LightMode" transform="translate(299 134.036)">
+      <rect id="Search-input_LightMode-2" data-name="Search-input/LightMode" width="40" height="40" rx="8" fill="#f6b233"/>
+    </g>
+    <path id="Vector_Stroke_" data-name="Vector (Stroke)" d="M9.44,9.2a.8.8,0,0,1-.8.8H.8a.8.8,0,1,1,0-1.6H8.64A.8.8,0,0,1,9.44,9.2Zm8.16-.8h-.68a.8.8,0,1,0,0,1.6h.68a.8.8,0,0,0,0-1.6ZM2.86,2.38a2.4,2.4,0,0,1,4.8,0,2.4,2.4,0,0,1-4.8,0Zm1.6,0a.785.785,0,0,0,.8.78.8.8,0,0,0,.8-.78.8.8,0,0,0-1.6,0ZM15.08,9.22a2.4,2.4,0,1,1-2.4-2.38A2.39,2.39,0,0,1,15.08,9.22Zm-1.6,0a.785.785,0,0,0-.8-.78.78.78,0,1,0,.8.78ZM.8,3.2h.46a.8.8,0,0,0,0-1.6H.8a.8.8,0,1,0,0,1.6Zm17.6-.8a.8.8,0,0,0-.8-.8H9.46a.8.8,0,0,0,0,1.6H17.6A.8.8,0,0,0,18.4,2.4Z" transform="translate(310 148.036)" fill="#fff"/>
+  </g>
+</svg>
