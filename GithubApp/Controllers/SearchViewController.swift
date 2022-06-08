@@ -1,28 +1,50 @@
 //
-//  ViewController.swift
+//  SearchViewController.swift
 //  GithubApp
 //
-//  Created by BrainX on 07/06/2022.
+//  Created by BrainX on 08/06/2022.
 //
 
 import UIKit
-import Alamofire
-class ViewController: UIViewController {
+
+class SearchViewController: UIViewController {
+
+    // MARK: - IBOutlets
+    @IBOutlet var searchView: SearchView!
     
-    @IBOutlet weak var serachTableView: UITableView!
+    // MARK: - Instance Properties
+    var data: [Person] = []
+    
+    // MARK: - View Did Load Function
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        getPersons()
+        searchView.tableView.dataSource = self
+        getData()
     }
     
-    func getPersons() {
+    // MARK: - Functions
+    func getData() {
         API.instance.getData { person in
-            print(person.count)
+            self.data = person
+            self.searchView.tableView.reloadData()
         }
     }
 }
 
+// MARK: - Extensions For SearchView Controller
+extension SearchViewController: UITableViewDataSource{
 
-
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
+        let personData = data[indexPath.row]
+        cell.backgroungImage.image = UIImage(named: "R")
+        cell.personImage.loadFrom(URLAddress: personData.owner!.avatarUrl)
+        cell.nameLabel.text = personData.name
+        cell.descriptionLabel.text = personData.description
+        return cell
+    }
+}

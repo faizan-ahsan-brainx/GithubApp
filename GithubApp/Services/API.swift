@@ -8,7 +8,10 @@
 import Foundation
 import Alamofire
 class API{
+    
     static let instance = API()
+    
+    // MARK: - Function to get Github Data
     func getData(completionHandler: @escaping (_ person: [Person]) -> Void) {
         _ = Alamofire.request("https://api.github.com/repositories", method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).response {
             (data) in

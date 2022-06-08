@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import ObjectMapper
 
+// MARK: - Structure of Person
 struct Person: Decodable {
     var name: String?
     var owner: Owner?
@@ -22,11 +22,4 @@ struct Person: Decodable {
       }
 }
 
-struct Owner: Decodable {
-    var avatarUrl: String
-    
-    enum CodingKeys: String, CodingKey {
-        case avatarUrl = "avatar_url"
-      }
-}
 

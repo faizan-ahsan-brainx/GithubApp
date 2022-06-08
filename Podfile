@@ -6,6 +6,5 @@ target 'GithubApp' do
 
   # Pods for GithubApp
 pod 'Alamofire'
-pod 'Mappable'
 pod 'ObjectMapper'
 end
