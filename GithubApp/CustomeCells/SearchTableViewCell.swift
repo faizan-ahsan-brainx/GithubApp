@@ -17,10 +17,10 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var backgroungImage: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 30
+        nameLabel.font = UIFont(name: "Gilroy", size: 17)
         configureOuterView()
         configurePersonImage()
         configureLanguageLabel()
@@ -32,14 +32,26 @@ class SearchTableViewCell: UITableViewCell {
         outerView.layer.borderWidth = 1
         outerView.layer.borderColor = UIColor.lightGray.cgColor
     }
-    
+
+    func configureDescriptionLabel(){
+        descriptionLabel.font = UIFont(name: "Gilroy", size: 17)
+    }
+
+    func configureNameLabel(){
+        nameLabel.font = UIFont(name: "Gilroy", size: 17)
+    }
+
     func configureLanguageLabel(){
-        languageLabel.layer.cornerRadius = 10
+        languageLabel.layer.cornerRadius = 5
         languageLabel.clipsToBounds = true
         languageLabel.text = "Python"
+        languageLabel.font = UIFont(name: "Gilroy", size: 17)
     }
     
     func configurePersonImage(){
+        //personImage.layer.shadowColor = UIColor.black.cgColor
+        personImage.layer.borderWidth = 1
+        personImage.layer.borderColor = UIColor.white.cgColor
         personImage.layer.cornerRadius = 10.0
         personImage.clipsToBounds = true
         personImage.layer.masksToBounds = true

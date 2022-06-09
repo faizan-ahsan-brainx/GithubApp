@@ -12,7 +12,7 @@ struct Person: Decodable {
     var name: String?
     var owner: Owner?
     var description: String?
-    var languageUrl: String?
+    var languageUrl: String
     
     enum CodingKeys: String, CodingKey {
         case name

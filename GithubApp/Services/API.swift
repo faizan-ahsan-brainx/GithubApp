@@ -8,7 +8,6 @@
 import Foundation
 import Alamofire
 class API{
-    
     static let instance = API()
     
     // MARK: - Function to get Github Data
@@ -25,4 +24,5 @@ class API{
             }
         }
     }
+
 }

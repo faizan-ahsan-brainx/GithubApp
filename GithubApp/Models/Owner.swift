@@ -10,8 +10,8 @@ import Foundation
 // MARK: - Structure of Owner
 struct Owner: Decodable {
     var avatarUrl: String
-
+    
     enum CodingKeys: String, CodingKey {
         case avatarUrl = "avatar_url"
-      }
+    }
 }
