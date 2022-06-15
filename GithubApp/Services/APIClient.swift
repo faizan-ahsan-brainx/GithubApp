@@ -7,9 +7,11 @@
 
 import Foundation
 import Alamofire
-class API{
-    static let instance = API()
-    
+class APIClient{
+    static let shared = APIClient()
+    private init(){
+        
+    }
     // MARK: - Function to get Github Data
     func getData(completionHandler: @escaping (_ person: [Person]) -> Void) {
         _ = Alamofire.request("https://api.github.com/repositories", method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).response {

@@ -22,8 +22,7 @@ class SearchTableViewCell: UITableViewCell {
         self.layer.cornerRadius = 30
         nameLabel.font = UIFont(name: "Gilroy", size: 17)
         configureOuterView()
-        configurePersonImage()
-        configureLanguageLabel()
+        configureLabels()
     }
     
     // MARK: - Functions For Configurations
@@ -31,29 +30,20 @@ class SearchTableViewCell: UITableViewCell {
         outerView.layer.cornerRadius = 20
         outerView.layer.borderWidth = 1
         outerView.layer.borderColor = UIColor.lightGray.cgColor
-    }
-
-    func configureDescriptionLabel(){
-        descriptionLabel.font = UIFont(name: "Gilroy", size: 17)
-    }
-
-    func configureNameLabel(){
-        nameLabel.font = UIFont(name: "Gilroy", size: 17)
-    }
-
-    func configureLanguageLabel(){
-        languageLabel.layer.cornerRadius = 5
-        languageLabel.clipsToBounds = true
-        languageLabel.text = "Python"
-        languageLabel.font = UIFont(name: "Gilroy", size: 17)
-    }
-    
-    func configurePersonImage(){
-        //personImage.layer.shadowColor = UIColor.black.cgColor
+        
         personImage.layer.borderWidth = 1
         personImage.layer.borderColor = UIColor.white.cgColor
         personImage.layer.cornerRadius = 10.0
         personImage.clipsToBounds = true
         personImage.layer.masksToBounds = true
+    }
+
+    func configureLabels(){
+        descriptionLabel.font = UIFont(name: "Gilroy", size: 17)
+        nameLabel.font = UIFont(name: "Gilroy", size: 17)
+        languageLabel.layer.cornerRadius = 5
+        languageLabel.clipsToBounds = true
+        languageLabel.text = "Python"
+        languageLabel.font = UIFont(name: "Gilroy", size: 17)
     }
 }

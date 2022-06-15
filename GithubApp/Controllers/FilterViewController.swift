@@ -9,27 +9,90 @@ import UIKit
 
 class FilterViewController: UIViewController {
 
+    //MARK: Instance Properties
+    var delegate: FilterDelegate?
+    var filterData :[Filter] = []
+    let checkedImage = UIImage(named: "check")! as UIImage
+    let uncheckedImage = UIImage(named: "uncheck")! as UIImage
+
+    // MARK: IB outlet
     @IBOutlet var filterView: FilterView!
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //super.viewDidLoad()
+        print("View Did load 2 called")
         filterView.filterTableView.delegate = self
         filterView.filterTableView.dataSource = self
     }
-    let languagesData = ["Python","Interior Painting","Electrician","Inappropriate client behavior","Gardener","Carpenter","House Cleaning"]
+    
+    // MARK: Functions
+    func configure(_ filterData: [Filter]){
+        self.filterData.removeAll()
+        self.filterData = filterData
+    }
+
+    // MARK: IB Actions
+    @IBAction func clearFilter(_ sender: Any) {
+        for index in 0..<filterData.count{
+            filterData[index].isSelected = false
+        }
+        delegate?.getSelectedFilters(filters: filterData)
+        dismiss(animated: true)
+    }
+    
+    @IBAction func applyFilter(_ sender: Any) {
+        delegate?.getSelectedFilters(filters: filterData)
+        dismiss(animated: true)
+    }
+
+    @IBAction func closeModal(_ sender: Any) {
+        dismiss(animated: true)
+    }
+
+    @IBAction func radioButtonAction(_ sender: UIButton) {
+        let tagNo: Int = sender.tag
+        if filterData[tagNo].isSelected == false {
+            sender.setImage(checkedImage, for: UIControl.State.normal)
+        } else {
+            sender.setImage(uncheckedImage, for: UIControl.State.normal)
+        }
+        filterData[tagNo].isSelected.toggle()
+    }
 }
+
+// MARK: Extension for Filter View Controller
 extension FilterViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
+
 extension FilterViewController: UITableViewDataSource {
+    
+    //MARK: Data Source Funtions
+    func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Languages"
+        
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        languagesData.count
+        filterData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FilterTableViewCell", for: indexPath) as! FilterTableViewCell
-        cell.languageLabel.text = languagesData[indexPath.row]
+        let cell: FilterTableViewCell = tableView.dequeueCell(for: indexPath)
+        cell.languageLabel.text = filterData[indexPath.row].languageName.rawValue
+        cell.radioButton.tag = indexPath.row
+        if filterData[indexPath.row].isSelected {
+            cell.radioButton.setImage(checkedImage, for: UIControl.State.normal)
+        } else {
+            cell.radioButton.setImage(uncheckedImage, for: UIControl.State.normal)
+        }
         return cell
     }
-    
-    
 }
