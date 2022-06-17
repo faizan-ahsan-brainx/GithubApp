@@ -26,7 +26,7 @@ class SearchTableViewCell: UITableViewCell {
     }
     
     // MARK: - Functions For Configurations
-    func configureOuterView(){
+    func configureOuterView() {
         outerView.layer.cornerRadius = 20
         outerView.layer.borderWidth = 1
         outerView.layer.borderColor = UIColor.lightGray.cgColor
@@ -38,7 +38,7 @@ class SearchTableViewCell: UITableViewCell {
         personImage.layer.masksToBounds = true
     }
 
-    func configureLabels(){
+    func configureLabels() {
         descriptionLabel.font = UIFont(name: "Gilroy", size: 17)
         nameLabel.font = UIFont(name: "Gilroy", size: 17)
         languageLabel.layer.cornerRadius = 5

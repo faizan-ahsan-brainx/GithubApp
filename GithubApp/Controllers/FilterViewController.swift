@@ -9,31 +9,33 @@ import UIKit
 
 class FilterViewController: UIViewController {
 
-    //MARK: Instance Properties
+    // MARK: Instance Properties
     var delegate: FilterDelegate?
     var filterData :[Filter] = []
-    let checkedImage = UIImage(named: "check")! as UIImage
-    let uncheckedImage = UIImage(named: "uncheck")! as UIImage
+    let checkedImage = UIImage(named: "check")
+    let uncheckedImage = UIImage(named: "uncheck")
 
-    // MARK: IB outlet
+    // MARK: Outlets
     @IBOutlet var filterView: FilterView!
     
     override func viewDidLoad() {
-        //super.viewDidLoad()
+        super.viewDidLoad()
         print("View Did load 2 called")
         filterView.filterTableView.delegate = self
         filterView.filterTableView.dataSource = self
     }
     
     // MARK: Functions
-    func configure(_ filterData: [Filter]){
-        self.filterData.removeAll()
+    func configureFilterData(_ filterData: [Filter]) {
         self.filterData = filterData
     }
 
     // MARK: IB Actions
     @IBAction func clearFilter(_ sender: Any) {
-        for index in 0..<filterData.count{
+        filterData.indices.forEach {
+            filterData[$0].isSelected = false
+        }
+        for index in 0..<filterData.count {
             filterData[index].isSelected = false
         }
         delegate?.getSelectedFilters(filters: filterData)
@@ -51,7 +53,7 @@ class FilterViewController: UIViewController {
 
     @IBAction func radioButtonAction(_ sender: UIButton) {
         let tagNo: Int = sender.tag
-        if filterData[tagNo].isSelected == false {
+        if !filterData[tagNo].isSelected {
             sender.setImage(checkedImage, for: UIControl.State.normal)
         } else {
             sender.setImage(uncheckedImage, for: UIControl.State.normal)
@@ -60,7 +62,7 @@ class FilterViewController: UIViewController {
     }
 }
 
-// MARK: Extension for Filter View Controller
+// MARK: Extension FilterViewController
 extension FilterViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -70,13 +72,13 @@ extension FilterViewController: UITableViewDelegate {
 
 extension FilterViewController: UITableViewDataSource {
     
-    //MARK: Data Source Funtions
+    // MARK: DataSource Funtions
     func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Languages"
+        return LocalizableKey.sectionLabel.rawValue
         
     }
 

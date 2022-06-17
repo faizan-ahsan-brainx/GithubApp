@@ -55,7 +55,7 @@
                                             <color key="baseBackgroundColor" systemColor="systemYellowColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="didTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u7c-Ya-jEH"/>
+                                            <action selector="didOpenFilters:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b7A-Nd-NrC"/>
                                         </connections>
                                     </button>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by name" translatesAutoresizingMaskIntoConstraints="NO" id="rId-Tu-qwb">
@@ -154,7 +154,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hc4-eF-tPg" customClass="PaddingLabel" customModule="GithubApp" customModuleProvider="target">
-                                                            <rect key="frame" x="326.66666666666669" y="83" width="51.333333333333314" height="30.333333333333329"/>
+                                                            <rect key="frame" x="336.66666666666669" y="93" width="41.333333333333314" height="20.333333333333329"/>
                                                             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -271,7 +271,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WM0-O8-leZ" customClass="PaddingLabel" customModule="GithubApp" customModuleProvider="target">
-                                                            <rect key="frame" x="54.000000000000007" y="33.333333333333343" width="66.666666666666686" height="38.666666666666657"/>
+                                                            <rect key="frame" x="54" y="38.333333333333336" width="56.666666666666657" height="28.666666666666664"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>

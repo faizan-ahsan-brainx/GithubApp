@@ -14,5 +14,4 @@ class FilterView: UIView {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var applyButton: UIButton!
-
 }

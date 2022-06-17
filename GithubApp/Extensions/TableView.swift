@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: UITableView extension
-extension UITableView{    
+extension UITableView {    
     func dequeueCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
         let cell =  dequeueReusableCell(withIdentifier: String(describing: T.self), for: indexPath)
         return cell as! T

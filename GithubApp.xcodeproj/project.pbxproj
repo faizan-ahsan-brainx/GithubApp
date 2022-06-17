@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D90E1F1A285C936D005B22DE /* LocalizeableKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90E1F19285C936D005B22DE /* LocalizeableKeys.swift */; };
 		D91337602852330500058AFF /* UiViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D913375F2852330500058AFF /* UiViewControllerExtension.swift */; };
 		D9133765285270D200058AFF /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9133764285270D200058AFF /* FilterViewController.swift */; };
 		D9133767285270E600058AFF /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9133766285270E600058AFF /* FilterView.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		79EBB9F5F6DD2FF8BE82D5F3 /* Pods-GithubApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubApp.release.xcconfig"; path = "Target Support Files/Pods-GithubApp/Pods-GithubApp.release.xcconfig"; sourceTree = "<group>"; };
 		AC27CCB4B120276B0B9A4470 /* Pods_GithubApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D90E1F19285C936D005B22DE /* LocalizeableKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeableKeys.swift; sourceTree = "<group>"; };
 		D913375F2852330500058AFF /* UiViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiViewControllerExtension.swift; sourceTree = "<group>"; };
 		D9133764285270D200058AFF /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		D9133766285270E600058AFF /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 				79EBB9F5F6DD2FF8BE82D5F3 /* Pods-GithubApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D90E1F18285C935F005B22DE /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				D90E1F19285C936D005B22DE /* LocalizeableKeys.swift */,
+			);
+			path = Globals;
 			sourceTree = "<group>";
 		};
 		D913376328526F7A00058AFF /* DesignFiles */ = {
@@ -171,6 +181,7 @@
 		D9A1FC76284F22190063040E /* GithubApp */ = {
 			isa = PBXGroup;
 			children = (
+				D90E1F18285C935F005B22DE /* Globals */,
 				D9B712B22858593A0087B682 /* Delegates */,
 				D913376328526F7A00058AFF /* DesignFiles */,
 				D95A164A28506A83007F31D2 /* Extensions */,
@@ -324,6 +335,7 @@
 				D9133765285270D200058AFF /* FilterViewController.swift in Sources */,
 				D9133769285271B500058AFF /* FilterTableViewCell.swift in Sources */,
 				D9157E462850BBA2002E6469 /* PaddingLabel.swift in Sources */,
+				D90E1F1A285C936D005B22DE /* LocalizeableKeys.swift in Sources */,
 				D9B712B62859E2180087B682 /* TableView.swift in Sources */,
 				D974F2BD284F60FA00D6330A /* APIClient.swift in Sources */,
 				D96C06AF285380C400AEFD9D /* Filter.swift in Sources */,

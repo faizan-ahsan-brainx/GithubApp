@@ -9,7 +9,7 @@ import UIKit
 
 class FilterTableViewCell: UITableViewCell {
 
-    // MARK: IB Outlets
+    // MARK: Outlets
     @IBOutlet weak var languageLabel: PaddingLabel!
     @IBOutlet weak var radioButton: UIButton!
     override func awakeFromNib() {

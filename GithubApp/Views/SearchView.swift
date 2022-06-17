@@ -11,7 +11,5 @@ class SearchView: UIView {
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    
-    
 }
 

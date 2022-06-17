@@ -6,19 +6,20 @@
 //
 
 import Foundation
-struct Filter{
+struct Filter {
     // MARK: Instance Properties
-    var languageName: languages
+    var languageName: Languages
     var isSelected: Bool
+    
 }
 
     // MARK: Languages Enum
-enum languages: String {
-    case Python = "Python"
-    case InteriorPainting = "Interior Painting"
-    case Electrician = "Electrician"
-    case InappropriateClientBehavior = "Inappropriate client behavior"
-    case Carpenter = "Carpenter"
-    case HouseCleaning = "House Cleaning"
-    case Gardener = "Gardener"
+enum Languages: String {
+    case python = "Python"
+    case interiorPainting = "Interior Painting"
+    case electrician = "Electrician"
+    case inappropriateClientBehavior = "Inappropriate client behavior"
+    case carpenter = "Carpenter"
+    case houseCleaning = "House Cleaning"
+    case gardener = "Gardener"
 }

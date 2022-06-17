@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-// MARK: - Class for Adding padding to the Label
+// MARK: - Custome Padding
 @IBDesignable
 class PaddingLabel: UILabel {
     var textEdgeInsets = UIEdgeInsets.zero {
@@ -28,7 +28,7 @@ class PaddingLabel: UILabel {
         super.drawText(in: rect.inset(by: textEdgeInsets))
     }
     
-    //MARK: - IBInspectable Instances
+    // MARK: - Inspectable Instances
     @IBInspectable
     var paddingLeft: CGFloat {
         set { textEdgeInsets.left = newValue }
