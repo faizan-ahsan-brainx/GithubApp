@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Protocol
 protocol FilterDelegate {
     func getSelectedFilters(filters: [Filter])
 }

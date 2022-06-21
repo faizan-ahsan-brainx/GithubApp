@@ -14,16 +14,19 @@ class APIClient {
     }
     // MARK: - Function to get Github Data
     func getData(completionHandler: @escaping (_ person: [Person]) -> Void) {
+        var persons: [Person] = []
         _ = Alamofire.request("https://api.github.com/repositories", method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).response {
             (data) in
             guard let responseData = data.data else {return}
             do {
-                let persons = try JSONDecoder().decode([Person].self, from: responseData)
+                persons = try JSONDecoder().decode([Person].self, from: responseData)
                 completionHandler(persons)
+                
             }
             catch {
                 print("Error decoding == \(error)")
             }
         }
+    
     }
 }

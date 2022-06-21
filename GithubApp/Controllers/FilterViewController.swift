@@ -11,13 +11,12 @@ class FilterViewController: UIViewController {
 
     // MARK: Instance Properties
     var delegate: FilterDelegate?
-    var filterData :[Filter] = []
-    let checkedImage = UIImage(named: "check")
-    let uncheckedImage = UIImage(named: "uncheck")
+    let filterViewModel = FilterViewModel()
 
     // MARK: Outlets
     @IBOutlet var filterView: FilterView!
     
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         print("View Did load 2 called")
@@ -25,25 +24,15 @@ class FilterViewController: UIViewController {
         filterView.filterTableView.dataSource = self
     }
     
-    // MARK: Functions
-    func configureFilterData(_ filterData: [Filter]) {
-        self.filterData = filterData
-    }
-
     // MARK: IB Actions
     @IBAction func clearFilter(_ sender: Any) {
-        filterData.indices.forEach {
-            filterData[$0].isSelected = false
-        }
-        for index in 0..<filterData.count {
-            filterData[index].isSelected = false
-        }
-        delegate?.getSelectedFilters(filters: filterData)
+        filterViewModel.clearFilter()
+        delegate?.getSelectedFilters(filters: filterViewModel.filterData)
         dismiss(animated: true)
     }
     
     @IBAction func applyFilter(_ sender: Any) {
-        delegate?.getSelectedFilters(filters: filterData)
+        delegate?.getSelectedFilters(filters: filterViewModel.filterData)
         dismiss(animated: true)
     }
 
@@ -53,12 +42,7 @@ class FilterViewController: UIViewController {
 
     @IBAction func radioButtonAction(_ sender: UIButton) {
         let tagNo: Int = sender.tag
-        if !filterData[tagNo].isSelected {
-            sender.setImage(checkedImage, for: UIControl.State.normal)
-        } else {
-            sender.setImage(uncheckedImage, for: UIControl.State.normal)
-        }
-        filterData[tagNo].isSelected.toggle()
+        filterViewModel.changeButtonImage(tagNo: tagNo, sender: sender)
     }
 }
 
@@ -79,21 +63,20 @@ extension FilterViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return LocalizableKey.sectionLabel.rawValue
-        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        filterData.count
+        filterViewModel.filterData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: FilterTableViewCell = tableView.dequeueCell(for: indexPath)
-        cell.languageLabel.text = filterData[indexPath.row].languageName.rawValue
+        cell.languageLabel.text = filterViewModel.filterData[indexPath.row].languageName.rawValue
         cell.radioButton.tag = indexPath.row
-        if filterData[indexPath.row].isSelected {
-            cell.radioButton.setImage(checkedImage, for: UIControl.State.normal)
+        if filterViewModel.filterData[indexPath.row].isSelected {
+            cell.radioButton.setImage(filterViewModel.checkedImage, for: UIControl.State.normal)
         } else {
-            cell.radioButton.setImage(uncheckedImage, for: UIControl.State.normal)
+            cell.radioButton.setImage(filterViewModel.uncheckedImage, for: UIControl.State.normal)
         }
         return cell
     }
