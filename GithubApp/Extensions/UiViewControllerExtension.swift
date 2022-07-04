@@ -9,14 +9,13 @@ import Foundation
 import UIKit
 
 // MARK: - Extensions For UIViewController
-extension UIViewController{
+extension UIViewController {
     
     static func instantiate(from storyboardName: StoryBoardName) -> Self {
             let storyboard = UIStoryboard(name: storyboardName.rawValue, bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! Self
         }
-    
 }
-enum StoryBoardName: String{
+enum StoryBoardName: String {
     case main = "Main"
 }
